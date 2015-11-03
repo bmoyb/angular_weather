@@ -16,7 +16,7 @@ myApp.service('weatherServiceDaily', ['$resource', function($resource) {
     
     if(city != undefined){
         
-        return weatherAPI.get({ q: city, cnt: days, , APPID: 3123d11ae1bb7e4c5d71cff206e6ffdd });
+        return weatherAPI.get({ q: city, cnt: days, , appid: "3123d11ae1bb7e4c5d71cff206e6ffdd" });
     };
     };
     
@@ -32,7 +32,7 @@ myApp.service('weatherServiceHourly', ['$resource', function($resource) {
     
     if(city != undefined){
         
-        return weatherAPI.get({ q: city, , APPID: 3123d11ae1bb7e4c5d71cff206e6ffdd});
+        return weatherAPI.get({ q: city, , appid: "3123d11ae1bb7e4c5d71cff206e6ffdd"});
     };
     };
     
