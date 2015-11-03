@@ -1,1 +1,1 @@
-# angular_weather
+# Angular Weather app
