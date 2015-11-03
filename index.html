@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="myApp">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AngularJS weather forecast APP</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+        
+        <!--load angular-->
+        <script src="https://code.angularjs.org/1.3.0-rc.2/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.3.0-rc.2/angular-route.min.js"></script>
+        <script src="https://code.angularjs.org/1.3.0-rc.2/angular-resource.min.js"></script>
+        <script src="app.js"></script>
+        <script src="routes.js"></script>
+        <script src="services.js"></script>
+        <script src="controllers.js"></script>
+        <script src="directives.js"></script>
+    </head>
+    
+    <style>
+        .animateTitle{
+            -webkit-animation-name: fadeTitle;
+            -webkit-animation-duration: 2s;
+        }
+        .animateContent{
+            -webkit-animation-name: fadeContent;
+            -webkit-animation-duration: 1s;
+        }
+        
+        @-webkit-keyframes fadeTitle {
+           0%   { opacity: 0; transform: translateY(100px)}
+           100% { opacity: 1; transform: translateY(0) }
+        }
+        @-webkit-keyframes fadeContent {
+           0%   { opacity: 0; transform: translateY(100px)}
+           80%  { opacity: 0;}
+           100% { opacity: 1; transform: translateY(0) }
+        }
+        
+        a.animateLink {
+            color: grey;
+        }
+    }
+            
+     
+    </style>
+    <body>
+        <header>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">AJS Weather</a>
+                </div>
+                <!--
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+                </ul>
+                -->
+            </div>
+            </nav>
+            
+        </header>
+        
+        <div class="container">
+            <div ng-view></div>
+        </div>
+        
+    </body>
+</html>

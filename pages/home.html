@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-1">
+    <h4 style="float:left;">Forecast by City</h4>
+    <div ng-show="weatherResult.city.name" style="float: right; margin: 11px 0 0 0;">
+    Now viewing: {{weatherResult.city.name}}, {{weatherResult.city.country}}
+        
+    </div>
+    </div>
+</div>
+<div class="row">
+    <form ng-submit="submit()">
+        <div class="col-md-6 col-md-push-3 col-sm-6 col-sm-push-3 col-xs-6 col-xs-push-1">
+        <input type="text" ng-model="city" class="form-control">
+        </div>
+        <div class="col-md-3 col-md-push-3 col-sm-6 col-sm-push-3 col-xs-6 col-xs-push-1" style="margin-left:-20px;">
+        <input type="submit"  class="btn btn-primary" value="Get Forecast"/>
+        </div>
+    </form>
+</div>
+<br/>
+<div class="row">
+    <div class="col-md-12">
+
+        <!--Show number of results on the page 2,5,7-->
+        <div ng-show="weatherResult.city.name">
+            <hr />
+            <div>
+            Days shown:
+            </div>
+ 
+             <div class="btn-group btn-group-sm" role="group">
+              <button type="button" class="btn btn-default" ng-click="page_2()" ng-class="{'btn-primary': days ==2}">2</button>
+              <button type="button" class="btn btn-default" ng-click="page_5()" ng-class="{'btn-primary': days ==5}">5</button>
+              <button type="button" class="btn btn-default" ng-click="page_7()" ng-class="{'btn-primary': days ==7}">7</button>
+            </div>
+            <button class="glyphicon glyphicon-refresh" ng-click="submit()" style="float: right; margin-top: 10px;"></button>
+        </div>
+    </div>
+</div>
+<!--Show first month in the list-->
+<div class="animateContent" ng-show="weatherResult.city.name" style="font-style: bold;">{{$scope.firstMonth = (weatherResult.list[0].dt*1000 | date:"MMMM")}}
+</div>
+<!--Show list of weather results-->
+<div ng-repeat="w in weatherResult.list track by $index">
+    <!--Show the name of the second month that will appear in some scenarios-->
+    <div ng-if="((w.dt*1000 | date:'MMMM') != $scope.firstMonth) && ((weatherResult.list[$index-1].dt*1000 | date: 'MMMM') != (w.dt*1000 | date:'MMMM'))" class="animateContent" style="font-style: bold;">
+        {{(w.dt*1000 | date:"MMMM")}}
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <weather-report weather-day="w" weather-hourly="weatherResultHourly" convert-to-standard="convertToFahrenheit(daytimeTemp)" convert-to-date="convertToDate(dt)" date-format="d, EEEE"></weather-report>
+        </div>
+    </div>
+</div>
+
+
+
+<!--
+<div class="row">
+    <div ng-controller="parentController as parentC">
+        {{parentC.message}}
+        
+        <div ng-controller="childController as childC">
+            {{childC.message}}
+            <br/>
+            {{parentC.message}}
+        </div>
+    </div>
+</div>
+-->
