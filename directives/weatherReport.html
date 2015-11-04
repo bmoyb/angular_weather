@@ -1,8 +1,8 @@
 <div class="panel panel-default animateTitle">
         <div class="panel-heading">
-            <h3 class="panel-title">
+            <h3 class="panel-title" >
                 {{convertToDate( {dt: weatherDay.dt} ) | date: dateFormat}}
-            <img src="http://openweathermap.org/img/w/{{weatherDay.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;" ng-hide="details[$index]">
+            <img ng-src="http://openweathermap.org/img/w/{{weatherDay.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;" ng-hide="details[$index]">
             </h3>
             <!--TRYING TO WORK ON 'HOURLY' BUTTON PLACEMENT
             <div class="btn-group btn-group-sm  pull-right" role="group" style="margin: -23px -11px 0 0;">
@@ -25,19 +25,19 @@
         <div class="panel-body animateContent" ng-show="details[$index]">
             <div ng-repeat="h in $parent.weatherResultHourly.list track by $index">
                 <div ng-if="$index < 8 && $parent.$parent.$index == 0">
-                    {{h.dt_txt}}, {{convertToStandard({daytimeTemp: h.main.temp})}}, {{h.weather[0].description}}, <img src="http://openweathermap.org/img/w/{{h.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;">
+                    {{h.dt_txt}}, {{convertToStandard({daytimeTemp: h.main.temp})}}, {{h.weather[0].description}}, <img ng-src="http://openweathermap.org/img/w/{{h.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;">
                 </div>
                 <div ng-if="$index > 7 && $index < 16 && $parent.$parent.$index == 1">
-                    {{h.dt_txt}}, {{convertToStandard({daytimeTemp: h.main.temp})}}, {{h.weather[0].description}}, <img src="http://openweathermap.org/img/w/{{h.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;">
+                    {{h.dt_txt}}, {{convertToStandard({daytimeTemp: h.main.temp})}}, {{h.weather[0].description}}, <img ng-src="http://openweathermap.org/img/w/{{h.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;">
                 </div>
                 <div ng-if="$index > 15 && $index < 24 && $parent.$parent.$index == 2">
-                    {{h.dt_txt}}, {{convertToStandard({daytimeTemp: h.main.temp})}}, {{h.weather[0].description}}, <img src="http://openweathermap.org/img/w/{{h.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;">
+                    {{h.dt_txt}}, {{convertToStandard({daytimeTemp: h.main.temp})}}, {{h.weather[0].description}}, <img ng-src="http://openweathermap.org/img/w/{{h.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;">
                 </div>
                 <div ng-if="$index > 23 && $index < 32 && $parent.$parent.$index == 3">
-                    {{h.dt_txt}}, {{convertToStandard({daytimeTemp: h.main.temp})}}, {{h.weather[0].description}}, <img src="http://openweathermap.org/img/w/{{h.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;">
+                    {{h.dt_txt}}, {{convertToStandard({daytimeTemp: h.main.temp})}}, {{h.weather[0].description}}, <img ng-src="http://openweathermap.org/img/w/{{h.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;">
                 </div>
                 <div ng-if="$index > 31 && $index < 40 && $parent.$parent.$index == 4">
-                    {{h.dt_txt}}, {{convertToStandard({daytimeTemp: h.main.temp})}}, {{h.weather[0].description}}, <img src="http://openweathermap.org/img/w/{{h.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;">
+                    {{h.dt_txt}}, {{convertToStandard({daytimeTemp: h.main.temp})}}, {{h.weather[0].description}}, <img ng-src="http://openweathermap.org/img/w/{{h.weather[0].icon}}.png" style="width:40px;height:40px; position:absolute; margin: -10px 0 0 0;">
                 </div>
             </div>
         </div>        
